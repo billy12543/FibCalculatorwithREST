@@ -29,7 +29,7 @@ class EchoView(APIView):
                 request.order = int(j["order"])
                 response = stub.Compute(request)
                 r = str(response)
-                publish.single(topic="N",payload=r[7:-1])
+                publish.single(topic="N",payload=j["order"])
             print("order",j["order"])
             return Response(data={ 'response': f'{r[7:-1]}' }, status=200)
 
