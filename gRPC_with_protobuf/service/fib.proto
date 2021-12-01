@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+service FibCalculator {
+    rpc Compute(FibRequest) returns (FibResponse);
+}
+
+service FibHistory {
+    rpc Compute (FibRequest) returns (FibHistoryContext);
+}
+
+message FibRequest {
+    int64 order = 1;
+}
+
+message FibResponse {
+    int64 value = 1;
+}
+
+message FibHistoryContext {
+    string history = 1;
+}
+
